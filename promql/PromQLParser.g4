@@ -133,4 +133,4 @@ keyword
     | FUNCTION
     ;
 
-literal: NUMBER | STRING;
+literal: NUMBER | SCIENTIFIC_NUMBER | STRING;

@@ -35,6 +35,25 @@ STRING
     | '"' (~('"' | '\\') | '\\' .)* '"'
     ;
 
+SCIENTIFIC_NUMBER
+   : NUMBER ((E1 | E2) SIGN? NUMBER)?
+   ;
+
+
+fragment E1
+   : 'E'
+   ;
+
+
+fragment E2
+   : 'e'
+   ;
+
+
+fragment SIGN
+   : ('+' | '-')
+   ;
+
 // Binary operators
 
 ADD:  '+';
