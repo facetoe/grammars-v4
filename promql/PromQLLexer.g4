@@ -44,9 +44,10 @@ DIV:  '/';
 MOD:  '%';
 POW:  '^';
 
-AND:    'and';
-OR:     'or';
-UNLESS: 'unless';
+AND:    ('a'|'A')('n'|'N')('d'|'D');
+OR:     ('o'|'O')('r'|'R');
+UNLESS: ('u'|'U')('n'|'N')('l'|'L')('e'|'E')('s'|'S')('s'|'S');
+
 
 // Comparison operators
 
@@ -62,33 +63,34 @@ NRE: '!~';
 
 // Aggregation modifiers
 
-BY:      'by';
-WITHOUT: 'without';
+BY:         ('b'|'B')('y'|'Y');
+WITHOUT:    ('w'|'W')('i'|'I')('t'|'T')('h'|'H')('o'|'O')('u'|'U')('t'|'T');
 
 // Join modifiers
 
-ON:          'on';
-IGNORING:    'ignoring';
-GROUP_LEFT:  'group_left';
-GROUP_RIGHT: 'group_right';
+ON:             ('o'|'O')('n'|'N');
+IGNORING:       ('i'|'I')('g'|'G')('n'|'N')('o'|'O')('r'|'R')('i'|'I')('n'|'N')('g'|'G');
+GROUP_LEFT:     ('g'|'G')('r'|'R')('o'|'O')('u'|'U')('p'|'P')'_'('l'|'L')('e'|'E')('f'|'F')('t'|'T');
+GROUP_RIGHT:    ('g'|'G')('r'|'R')('o'|'O')('u'|'U')('p'|'P')'_'('r'|'R')('i'|'I')('g'|'G')('h'|'H')('t'|'T');
 
-OFFSET: 'offset';
 
-BOOL: 'bool';
+OFFSET: ('o'|'O')('f'|'F')('f'|'F')('s'|'S')('e'|'E')('t'|'T');
+
+BOOL: ('b'|'B')('o'|'O')('o'|'O')('l'|'L');
 
 AGGREGATION_OPERATOR
-    : 'sum'
-    | 'min'
-    | 'max'
-    | 'avg'
-    | 'group'
-    | 'stddev'
-    | 'stdvar'
-    | 'count'
-    | 'count_values'
-    | 'bottomk'
-    | 'topk'
-    | 'quantile'
+    : ('s'|'S')('u'|'U')('m'|'M')
+    | ('m'|'M')('i'|'I')('n'|'N')
+    | ('m'|'M')('a'|'A')('x'|'X')
+    | ('a'|'A')('v'|'V')('g'|'G')
+    | ('g'|'G')('r'|'R')('o'|'O')('u'|'U')('p'|'P')
+    | ('s'|'S')('t'|'T')('d'|'D')('d'|'D')('e'|'E')('v'|'V')
+    | ('s'|'S')('t'|'T')('d'|'D')('v'|'V')('a'|'A')('r'|'R')
+    | ('c'|'C')('o'|'O')('u'|'U')('n'|'N')('t'|'T')
+    | ('c'|'C')('o'|'O')('u'|'U')('n'|'N')('t'|'T')'_'('v'|'V')('a'|'A')('l'|'L')('u'|'U')('e'|'E')('s'|'S')
+    | ('b'|'B')('o'|'O')('t'|'T')('t'|'T')('o'|'O')('m'|'M')('k'|'K')
+    | ('t'|'T')('o'|'O')('p'|'P')('k'|'K')
+    | ('q'|'Q')('u'|'U')('a'|'A')('n'|'N')('t'|'T')('i'|'I')('l'|'L')('e'|'E')
     ;
 
 FUNCTION
