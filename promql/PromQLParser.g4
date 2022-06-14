@@ -102,9 +102,9 @@ parameterList: LEFT_PAREN (parameter (COMMA parameter)*)? RIGHT_PAREN;
 // Aggregations
 
 aggregation
-    : AGGREGATION_OPERATOR parameterList
-    | AGGREGATION_OPERATOR (by | without) parameterList
-    | AGGREGATION_OPERATOR parameterList ( by | without)
+    : AGGREGATION_OPERATOR parameterList # bare
+    | AGGREGATION_OPERATOR (by | without) parameterList # prefix
+    | AGGREGATION_OPERATOR parameterList ( by | without) # postfix
     ;
 by:      BY labelNameList;
 without: WITHOUT labelNameList;
