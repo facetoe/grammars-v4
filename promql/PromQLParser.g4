@@ -104,11 +104,12 @@ parameterList: LEFT_PAREN (parameter (COMMA parameter)*)? RIGHT_PAREN;
 
 aggregation
     : AGGREGATION_OPERATOR parameterList
-    | AGGREGATION_OPERATOR (by | without) parameterList
-    | AGGREGATION_OPERATOR parameterList ( by | without)
+    | AGGREGATION_OPERATOR prefix=byWithout parameterList
+    | AGGREGATION_OPERATOR parameterList suffix=byWithout
     ;
 by:      BY labelNameList;
 without: WITHOUT labelNameList;
+byWithout: (by | without);
 
 // Vector one-to-one/one-to-many joins
 
