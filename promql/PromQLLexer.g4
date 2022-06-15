@@ -28,6 +28,10 @@
 
 lexer grammar PromQLLexer;
 
+// All keywords in PromQL are case insensitive, it is just function,
+// label and metric names that are not.
+options { caseInsensitive=true; }
+
 NUMBER: [0-9]+ ('.' [0-9]+)?;
 
 STRING
@@ -110,7 +114,7 @@ AGGREGATION_OPERATOR
     | 'quantile'
     ;
 
-FUNCTION
+FUNCTION options { caseInsensitive=false; }
     : 'abs'
     | 'absent'
     | 'absent_over_time'
@@ -171,13 +175,15 @@ RIGHT_BRACKET: ']';
 
 COMMA: ',';
 
+SUBQUERY_RANGE
+     : LEFT_BRACKET DURATION ':' DURATION? RIGHT_BRACKET;
+
 TIME_RANGE
-    : LEFT_BRACKET DURATION RIGHT_BRACKET
-    | LEFT_BRACKET DURATION ':' DURATION? RIGHT_BRACKET ;
+    : LEFT_BRACKET DURATION RIGHT_BRACKET;
 
 DURATION: [0-9]+ ('s' | 'm' | 'h' | 'd' | 'w' | 'y');
 
-METRIC_NAME: [a-zA-Z_:] [a-zA-Z0-9_:]*;
-LABEL_NAME:  [a-zA-Z_] [a-zA-Z0-9_]*;
+METRIC_NAME: [a-z_:] [a-z0-9_:]*;
+LABEL_NAME:  [a-z_] [a-z0-9_]*;
 
 WS: [\r\t\n ]+ -> skip;

@@ -1,7 +1,6 @@
 _grammar-test
 antlr/antlr2
 antlr/antlr3
-antlr/antlr4
 apex
 asm/asmMASM
 asm/masm
@@ -87,14 +86,13 @@ sexpression
 sgf
 smalltalk
 sparql
-sql/hive/v1
 sql/hive/v2
+sql/hive/v3
 sql/sqlite
 sql/postgresql
 sql/tsql
 stellaris
 stringtemplate
-swift-fin
 swift/swift2
 swift/swift3
 swift/swift5
